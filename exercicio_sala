@@ -44,7 +44,7 @@ while opcao != 0:
             for i, (item, categoria) in enumerate(lista_de_compras):
                 print(f'{i + 1} - {item} (Categoria: {categoria})')
 
-    # Sair
+    # Encerrar
     elif opcao == 0:
         print("Saindo do programa...")
     else:
