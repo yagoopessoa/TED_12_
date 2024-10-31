@@ -2,7 +2,7 @@ lista_de_compras = []
 opcao = 1
 
 while opcao != 0:
-    print('\n ======================')
+    print('\n ========================')
     print('1 - Adicionar novo item')
     print('2 - Remover item')
     print('3 - Exibir lista completa')
@@ -11,20 +11,22 @@ while opcao != 0:
 
     # Adicionar novo item à lista
     if opcao == 1:
-        print('\n=====> ADICIONAR ITEM <=====\n')
-        novo_item = input('Digite o novo item a ser adicionado: ')
-        lista_de_compras.append(novo_item)
+        print('\n======> ADICIONAR ITEM <======\n')
+        novo_item = input('Digite o nome do novo item: ')
+        categoria_item = input('Digite a categoria do item: ')
+        lista_de_compras.append((novo_item, categoria_item))
+        print(f'Item "{novo_item}" na categoria "{categoria_item}" adicionado com sucesso.')
 
     # Remover item
     elif opcao == 2:
-        print('\n=====> REMOVER ITEM DA LISTA <=====\n')
+        print('\n======> REMOVER ITEM DA LISTA <======\n')
         if not lista_de_compras:
             print("A lista está vazia. Não há itens para remover.")
         else:
-            for i in range(len(lista_de_compras)):
-                print(f'{i + 1} - {lista_de_compras[i]}')
+            for i, (item, categoria) in enumerate(lista_de_compras):
+                print(f'{i + 1} - {item} (Categoria: {categoria})')
 
-            print('\n ====')
+            print('\n ======')
             item_remover = int(input('Digite o código do item: ')) - 1
 
             if 0 <= item_remover < len(lista_de_compras):
@@ -35,12 +37,12 @@ while opcao != 0:
 
     # Exibir lista completa
     elif opcao == 3:
-        print('\n=====> LISTA COMPLETA <=====\n')
+        print('\n======> LISTA COMPLETA <======\n')
         if not lista_de_compras:
             print("A lista está vazia.")
         else:
-            for i in range(len(lista_de_compras)):
-                print(f'{i + 1} - {lista_de_compras[i]}')
+            for i, (item, categoria) in enumerate(lista_de_compras):
+                print(f'{i + 1} - {item} (Categoria: {categoria})')
 
     # Sair
     elif opcao == 0:
